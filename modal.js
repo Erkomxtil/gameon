@@ -21,6 +21,10 @@ const quantity = document.querySelector("#quantity")
 const locationsWrapper = document.querySelector("#locations")
 const locations = document.querySelectorAll(".checkbox-input[type=\"radio\"]")
 const terms = document.querySelector("#checkbox1")
+const thankyou = document.querySelector(".thank-you")
+const thankyoucross = document.querySelector("#close-thank-you")
+const thankyouclose = document.querySelector(".thank-you button")
+const resetform = document.querySelector("form[name=\"reserve\"]")
 
 // launch modal event
 modalBtn.forEach(
@@ -143,6 +147,24 @@ function termsOfUse() {
   }
 }
 
+// Open thank you modal
+function openThankYou() {
+  thankyou.classList.add("active")
+}
+
+// Close thank you modal
+thankyouclose.addEventListener("click", () => {
+  closeThankYouModal()
+})
+
+thankyoucross.addEventListener("click", () => {
+  closeThankYouModal()
+})
+
+function closeThankYouModal() {
+  thankyou.classList.remove("active")
+}
+
 // Form submission
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault()
@@ -157,6 +179,9 @@ btnSubmit.addEventListener("click", (e) => {
     checkLocations() === true &&
     termsOfUse() === true) {
       closeModal()
+      resetform.reset()
+      openThankYou()
+
     }
 })
 
