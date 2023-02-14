@@ -51,40 +51,44 @@
           je m'inscris
         </button>
       </div>
-
+<!-- Modal -->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+            <!-- Form -->
             <form
               name="reserve"
               action="index.html"
               method="get"
               onsubmit="return validate();"
             >
+            <!-- First name -->
               <div
-                class="formData">
-                <label for="first">Prénom</label><br>
+                class="formData" data-error="Champ obligatoire, le prénom doit comporter au moins 2 caractères." data-error-visible="false">
+                <label for="firstName">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="first"
-                  name="first"
+                  id="firstName"
+                  name="firstName"
                   minlength="2"
                 /><br>
               </div>
+              <!-- Last name -->
               <div
-                class="formData">
-                <label for="last">Nom</label><br>
+                class="formData" data-error="Champ obligatoire, le nom doit comporter au mois 2 caractères.">
+                <label for="lastName">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
-                  id="last"
-                  name="last"
+                  id="lastName"
+                  name="lastName"
                 /><br>
               </div>
+              <!-- Email -->
               <div
-                class="formData">
+                class="formData" data-error="Champ obligatoire, veuillez entrer une adresse email valide." data-error-visible="false">
                 <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
@@ -93,8 +97,9 @@
                   name="email"
                 /><br>
               </div>
+              <!-- Birthdate -->
               <div
-                class="formData">
+                class="formData" data-error="Champ obligatoire, veuillez entrer votre date de naissance." data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -103,14 +108,16 @@
                   name="birthdate"
                 /><br>
               </div>
+              <!-- Tournaments -->
               <div
-                class="formData">
+                class="formData" data-error="Veuillez saisir un nombre." data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" placeholder="0">
               </div>
+              <!-- Locations -->
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData" data-error="Champ obligatoire, veuillez choisir une ville." data-error-visible="false" id="locations">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -178,9 +185,9 @@
                   Portland</label
                 >
               </div>
-
+              <!-- Terms of use -->
               <div
-                class="formData">
+                class="formData" data-error="Veuillez accepter les termes et conditions d'utilisation." data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -203,6 +210,7 @@
                 class="btn-submit"
                 type="submit"
                 class="button"
+                id="btn-submit"
                 value="C'est parti"
               />
             </form>
