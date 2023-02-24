@@ -56,7 +56,7 @@ lastname.addEventListener("focusout",
 })
 
 function checkFirstAndName(inputValue) {
-  if(inputValue?.value !== "" && inputValue?.value.length > 1) {
+  if(inputValue?.value.trim() !== "" && inputValue?.value.length.trim() > 1) {
     inputValue.parentNode.setAttribute("data-error-visible", "false")
     return true
   } else  {
